@@ -9,39 +9,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <!-- Link to Font Awesome for icons -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        body {
-            margin: 0;
-            padding: 0;
+         body {
             font-family: 'Poppins', sans-serif;
             background-color: #0d1117;
             color: #c9d1d9;
+            margin: 0;
+            padding: 0;
         }
 
         header {
             background-color: #161b22;
             padding: 20px 0;
-			display: flex;
-            align-items: center;
-            justify-content: center;
-        
-        }
-
-        .logo {
-            margin-right: 500px;
-            padding-left: 20px; /* Add some padding to the left for spacing */
         }
 
         .logo img {
-            max-height: 60px; /* Adjust the height of the logo as needed */
+            max-height: 60px;
         }
 
         nav ul {
             list-style-type: none;
             display: flex;
             justify-content: center;
-            padding: 25px;
-            margin: 0;
+            padding: 10px;
         }
 
         nav ul li {
@@ -52,16 +44,30 @@
             text-decoration: none;
             color: #c9d1d9;
             font-size: 18px;
+            position: relative;
         }
 
-        nav ul li a:hover {
-            color: #58a6ff;
+        nav ul li a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #58a6ff;
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            transition: width 0.3s ease;
         }
 
-        /* Underline for the "Portfolio" link */
-        nav ul li a.portfolio-link {
-            border-bottom: 2px solid #58a6ff;
-		}
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .eb {
+            background-color: #0d1117;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
 		
         .eb {
             display: flex;
@@ -69,25 +75,22 @@
             justify-content: center;
             padding: 15px 20px;
             background-color: #0d1117;
-			color: #c9d1d9;
+            color: #c9d1d9;
             margin-bottom: 0;
         }
 
-        .container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-		.eb-text p {
+        .eb-text p {
             font-size: 16px;
             line-height: 1.5;
             margin: 20px 0;
-            padding: 0 20px; /* Adjusted padding */
-            text-align: justify;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .eb-text h1 {
+            font-size: 50px;
+            text-align: center;
+            color: #58a6ff;
         }
 
         .social-links a {
@@ -102,7 +105,7 @@
 
         .carousel-container {
             max-width: 600px;
-            margin: 0px auto;
+            margin: 0 auto;
             overflow: hidden;
             position: relative;
         }
@@ -138,7 +141,7 @@
         }
 
         .explore-container {
-            text-align: center; /* Center the container */
+            text-align: center;
             margin: 20px 0;
         }
 
@@ -157,27 +160,11 @@
             color: #000;
             transform: scale(1.05);
         }
-		
-		
-		.skill-description {
-        flex: 2;
-        padding: 20px;
-        text-align: center; /* Center align text */
-		}
 
-		.skill-description h2,
-		.skill-description p {
-        text-align: center; /* Center align text */
-		}
-		
-		
-		
-		
-        
         .skill-container {
             display: flex;
-            max-width: 1000px;
-            margin: 20px auto;
+            max-width: 800px;
+            margin: 30px auto;
             padding: 20px;
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -199,8 +186,11 @@
         .skill-description {
             flex: 2;
             padding: 20px;
-            text-align: left;
+            text-align: center;
         }
+		.skill-description h2 {
+		font-size: 24px; /* Adjust the font size as needed */
+		}
 
         .explore-btn {
             text-align: center;
@@ -244,248 +234,261 @@
         .close-btn:hover {
             color: #c9d1d9;
         }
-
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">
-            <img src="assets/logo.png" alt="Logo"> <!-- Replace "logo.png" with the path to your logo file -->
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <div class="logo text-center text-md-left">
+                        <img src="assets/logo.png" alt="Logo" style="max-height: 60px;">
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <nav class="text-center text-md-right mt-3 mt-md-0">
+                        <ul class="nav">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link about-link" href="About.html">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="Skills.html">Skills</a></li>
+                            <li class="nav-item"><a class="nav-link" href="Portfolio.html">Portfolio</a></li>
+                            <li class="nav-item"><a class="nav-link" href="Contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="About.html">About</a></li>
-                <li><a href="Skills.html">Skills</a></li>
-                <li><a href="Portfolio.html" class="portfolio-link">Portfolio</a></li>
-                <li><a href="Contact.html">Contact</a></li>
-            </ul>
-        </nav>
     </header>
 
-      <section id="home" class="eb">
+    <section id="home" class="eb">
         <div class="container">
             <div class="eb-text">
+                <br>
                 <h1>Portfolio</h1>
                 <h3><span class="typing-text" id="typing-text"></span></h3>
             </div>
         </div>
     </section>
-    
-    <section>
-        <div class="skill-container">
-            <div class="skill-image">
-                <img src="assets/a.png" alt="Portfolio 1">
+
+    <!-- Portfolio Items -->
+    <section class="container-fluid">
+        <div class="row">
+            <!-- Portfolio Item 1 -->
+            <div class="skill-container">
+                <div class="skill-image">
+                    <img src="assets/a.png" alt="Portfolio 1">
+                </div>
+                <div class="skill-description">
+                    <h2>Inventory Management using HTML</h2>
+                    <p>Adamson University - May 24, 2024</p>
+                    <div class="explore-btn">
+                        <button id="exploreBtn1" class="explore">Explore</button>
+                    </div>
+                </div>
             </div>
-            <div class="skill-description">
-                <h2>Inventory Management using HTML</h2>
-                <p>Adamson University - May 24, 2024</p>
-                <div class="explore-btn">
-                    <button id="exploreBtn1" class="explore">Explore</button>
+
+            <div id="myModal1" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <p>Dadi's Store is an efficient inventory management system developed using HTML in Visual Studio, integrated with PHP, MySQL, and WampServer. It features a user-friendly interface that simplifies inventory operations, offering real-time updates and notifications on low stock levels directly on the dashboard. The system enables comprehensive monitoring of inventory products and maintains a detailed transaction history. With distinct user profiles for both cashiers and administrators, It ensures secure and role-based access to manage inventory and streamline operations effectively.</p>
                 </div>
             </div>
         </div>
 
-        <div id="myModal1" class="modal">
-            <div class="modal-content">
-                <span class="close-btn">&times;</span>
-                <p>Dadi's Store is an efficient inventory management system developed using HTML in Visual Studio, integrated with PHP, MySQL, and WampServer. It features a user-friendly interface that simplifies inventory operations, offering real-time updates and notifications on low stock levels directly on the dashboard. The system enables comprehensive monitoring of inventory products and maintains a detailed transaction history. With distinct user profiles for both cashiers and administrators, It ensures secure and role-based access to manage inventory and streamline operations effectively.</p>
+        <!-- Portfolio Item 2 -->
+        <div class="row">
+            <div class="skill-container">
+                <div class="skill-image">
+                    <img src="assets/b.jpg" alt="Portfolio 2">
+                </div>
+                <div class="skill-description">
+                    <h2>Arduino-Based Line Follower Robot</h2>
+                    <p>Adamson University - May 22, 2024</p>
+                    <div class="explore-btn">
+                        <button id="exploreBtn2" class="explore">Explore</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="myModal2" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <p>This project focuses on creating an Arduino-based Line Follower Robot using the LAFVIN robot kit. The robot is designed to autonomously navigate predefined paths by following black lines on a contrasting surface. Equipped with infrared sensors, the robot detects the path and adjusts its movement accordingly, demonstrating principles of robotics and automation. The project integrates Arduino programming and sensor interfacing to achieve precise control and navigation, making it an ideal platform for learning basic robotics concepts and sensor-based control systems.</p>
+                </div>
             </div>
         </div>
 
-        <script>
-            const modal1 = document.getElementById('myModal1');
-            const exploreBtn1 = document.getElementById('exploreBtn1');
-            const closeBtn1 = document.querySelector('#myModal1 .close-btn');
+        <!-- Portfolio Item 3 -->
+        <div class="row">
+            <div class="skill-container">
+                <div class="skill-image">
+                    <img src="assets/c.jpg" alt="Portfolio 3">
+                </div>
+                <div class="skill-description">
+                    <h2>YOLOVATOR: Elevator Head Count through YOLOv5</h2>
+                    <p>Adamson University - May 22, 2024</p>
+                    <div class="explore-btn">
+                        <button id="exploreBtn3" class="explore">Explore</button>
+                    </div>
+                </div>
+            </div>
 
-            exploreBtn1.addEventListener('click', function() {
-                modal1.style.display = 'flex';
-            });
+            <div id="myModal3" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <p>This project aims to optimize elevator efficiency and safety using YOLOv5-based camera systems for real-time head counting. By accurately monitoring passenger traffic and occupancy levels, the system minimizes wait times and congestion, ensuring a safer environment through continuous surveillance. Implemented with Arduino microcontrollers and AI algorithms, this initiative showcases improved elevator management, contributing to enhanced operational efficiency and safety protocols within educational settings.</p>
+                </div>
+            </div>
+        </div>
 
-            closeBtn1.addEventListener('click', function() {
+        <!-- Portfolio Item 4 -->
+        <div class="row">
+            <div class="skill-container">
+                <div class="skill-image">
+                    <img src="assets/e.jpg" alt="Portfolio 5">
+                </div>
+                <div class="skill-description">
+                    <h2>TransitSense</h2>
+                    <p>Adamson University - May 18, 2024</p>
+                    <div class="explore-btn">
+                        <button id="exploreBtn5" class="explore">Explore</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="myModal5" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <p>TransitSense is an innovative software solution that optimizes public transportation by enhancing passenger flow through intelligent queue management. Using object detection technology, it identifies and analyzes real-time footage of commuters in crowded areas. This system improves resource allocation, streamlines boarding processes, reduces traffic congestion, and lowers carbon emissions, promoting efficient and sustainable urban transit.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Portfolio Item 5 -->
+        <div class="row">
+            <div class="skill-container">
+                <div class="skill-image">
+                    <img src="assets/d.jpg" alt="Portfolio 4">
+                </div>
+                <div class="skill-description">
+                    <h2>CPE Challenge - Robothon Competition</h2>
+                    <p>ICPEP.SE NCR (Asia Pacific College)</p>
+                    <div class="explore-btn">
+                        <button id="exploreBtn4" class="explore">Explore</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="myModal4" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <p>The event, organized by the ICPEP.SE NCR, included representatives from various participating CPE institutions and universities in NCR. I was chosen as one of the representatives from Adamson University to compete in a pitching competition focusing on IoT solutions aimed at preventing traffic congestion, reducing carbon emissions, and enhancing commuter experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS, Font Awesome -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Script for Modal Windows -->
+    <script>
+        // Modal 1
+        const modal1 = document.getElementById('myModal1');
+        const exploreBtn1 = document.getElementById('exploreBtn1');
+        const closeBtn1 = document.querySelector('#myModal1 .close-btn');
+
+        exploreBtn1.addEventListener('click', function() {
+            modal1.style.display = 'flex';
+        });
+
+        closeBtn1.addEventListener('click', function() {
+            modal1.style.display = 'none';
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target === modal1) {
                 modal1.style.display = 'none';
-            });
+            }
+        });
 
-            window.addEventListener('click', function(event) {
-                if (event.target === modal1) {
-                    modal1.style.display = 'none';
-                }
-            });
-        </script>
-    </section>
+        // Modal 2
+        const modal2 = document.getElementById('myModal2');
+        const exploreBtn2 = document.getElementById('exploreBtn2');
+        const closeBtn2 = document.querySelector('#myModal2 .close-btn');
 
-    <section>
-        <div class="skill-container">
-            <div class="skill-image">
-                <img src="assets/b.jpg" alt="Portfolio 2">
-            </div>
-            <div class="skill-description">
-                <h2>Arduino-Based Line Follower Robot</h2>
-                <p>Adamson University - May 22, 2024</p>
-                <div class="explore-btn">
-                    <button id="exploreBtn2" class="explore">Explore</button>
-                </div>
-            </div>
-        </div>
+        exploreBtn2.addEventListener('click', function() {
+            modal2.style.display = 'flex';
+        });
 
-        <div id="myModal2" class="modal">
-            <div class="modal-content">
-                <span class="close-btn">&times;</span>
-                <p>This project focuses on creating an Arduino-based Line Follower Robot using the LAFVIN robot kit. The robot is designed to autonomously navigate predefined paths by following black lines on a contrasting surface. Equipped with infrared sensors, the robot detects the path and adjusts its movement accordingly, demonstrating principles of robotics and automation. The project integrates Arduino programming and sensor interfacing to achieve precise control and navigation, making it an ideal platform for learning basic robotics concepts and sensor-based control systems.</p>
-            </div>
-        </div>
+        closeBtn2.addEventListener('click', function() {
+            modal2.style.display = 'none';
+        });
 
-        <script>
-            const modal2 = document.getElementById('myModal2');
-            const exploreBtn2 = document.getElementById('exploreBtn2');
-            const closeBtn2 = document.querySelector('#myModal2 .close-btn');
-
-            exploreBtn2.addEventListener('click', function() {
-                modal2.style.display = 'flex';
-            });
-
-            closeBtn2.addEventListener('click', function() {
+        window.addEventListener('click', function(event) {
+            if (event.target === modal2) {
                 modal2.style.display = 'none';
-            });
+            }
+        });
 
-            window.addEventListener('click', function(event) {
-                if (event.target === modal2) {
-                    modal2.style.display = 'none';
-                }
-            });
-        </script>
-    </section>
-	
-	    <section>
-        <div class="skill-container">
-            <div class="skill-image">
-                <img src="assets/c.jpg" alt="Portfolio 3">
-            </div>
-            <div class="skill-description">
-                <h2>YOLOVATOR: Elevator Head Count through YOLOv5</h2>
-                <p>Adamson University - May 22, 2024</p>
-                <div class="explore-btn">
-                    <button id="exploreBtn3" class="explore">Explore</button>
-                </div>
-            </div>
-        </div>
+        // Modal 3
+        const modal3 = document.getElementById('myModal3');
+        const exploreBtn3 = document.getElementById('exploreBtn3');
+        const closeBtn3 = document.querySelector('#myModal3 .close-btn');
 
-        <div id="myModal3" class="modal">
-            <div class="modal-content">
-                <span class="close-btn">&times;</span>
-                <p>This project aims to optimize elevator efficiency and safety using YOLOv5-based camera systems for real-time head counting. By accurately monitoring passenger traffic and occupancy levels, the system minimizes wait times and congestion, ensuring a safer environment through continuous surveillance. Implemented with Arduino microcontrollers and AI algorithms, this initiative showcases improved elevator management, contributing to enhanced operational efficiency and safety protocols within educational settings.</p>
-            </div>
-        </div>
+        exploreBtn3.addEventListener('click', function() {
+            modal3.style.display = 'flex';
+        });
 
-        <script>
-            const modal3 = document.getElementById('myModal3');
-            const exploreBtn3 = document.getElementById('exploreBtn3');
-            const closeBtn3 = document.querySelector('#myModal3 .close-btn');
+        closeBtn3.addEventListener('click', function() {
+            modal3.style.display = 'none';
+        });
 
-            exploreBtn3.addEventListener('click', function() {
-                modal3.style.display = 'flex';
-            });
-
-            closeBtn3.addEventListener('click', function() {
+        window.addEventListener('click', function(event) {
+            if (event.target === modal3) {
                 modal3.style.display = 'none';
-            });
+            }
+        });
 
-            window.addEventListener('click', function(event) {
-                if (event.target === modal3) {
-                    modal3.style.display = 'none';
-                }
-            });
-        </script>
-    </section>
-	
-		<section>
-        <div class="skill-container">
-            <div class="skill-image">
-                <img src="assets/e.jpg" alt="Portfolio 5">
-            </div>
-            <div class="skill-description">
-                <h2>TransitSense</h2>
-                <p>Adamson University - May 18, 2024</p>
-                <div class="explore-btn">
-                    <button id="exploreBtn5" class="explore">Explore</button>
-                </div>
-            </div>
-        </div>
+        // Modal 4
+        const modal4 = document.getElementById('myModal4');
+        const exploreBtn4 = document.getElementById('exploreBtn4');
+        const closeBtn4 = document.querySelector('#myModal4 .close-btn');
 
-        <div id="myModal5" class="modal">
-            <div class="modal-content">
-                <span class="close-btn">&times;</span>
-                <p> TransitSense is an innovative software solution that optimizes public transportation by enhancing passenger flow through intelligent queue management. Using object detection technology, it identifies and analyzes real-time footage of commuters in crowded areas. This system improves resource allocation, streamlines boarding processes, reduces traffic congestion, and lowers carbon emissions, promoting efficient and sustainable urban transit.
-				</p>
-			</div>
-        </div>
+        exploreBtn4.addEventListener('click', function() {
+            modal4.style.display = 'flex';
+        });
 
-        <script>
-            const modal5 = document.getElementById('myModal5');
-            const exploreBtn5 = document.getElementById('exploreBtn5');
-            const closeBtn5 = document.querySelector('#myModal5 .close-btn');
+        closeBtn4.addEventListener('click', function() {
+            modal4.style.display = 'none';
+        });
 
-            exploreBtn5.addEventListener('click', function() {
-                modal5.style.display = 'flex';
-            });
-
-            closeBtn5.addEventListener('click', function() {
-                modal5.style.display = 'none';
-            });
-
-            window.addEventListener('click', function(event) {
-                if (event.target === modal5) {
-                    modal5.style.display = 'none';
-                }
-            });
-        </script>
-    </section>
-		<section>
-        <div class="skill-container">
-            <div class="skill-image">
-                <img src="assets/d.jpg" alt="Portfolio 4">
-            </div>
-            <div class="skill-description">
-                <h2>CPE Challenge - Robothon Competition</h2>
-                <p>ICPEP.SE NCR (Asia Pacific College)</p>
-                <div class="explore-btn">
-                    <button id="exploreBtn4" class="explore">Explore</button>
-                </div>
-            </div>
-        </div>
-
-        <div id="myModal4" class="modal">
-            <div class="modal-content">
-                <span class="close-btn">&times;</span>
-                <p> The event, organized by the ICPEP.SE NCR, included representatives from various participating CPE institutions and universities in NCR. I was chosen as one of the representatives from Adamson University to compete in a pitching competition focusing on IoT solutions aimed at preventing traffic congestion, reducing carbon emissions, and enhancing commuter experience.
-				</p>
-			</div>
-        </div>
-
-        <script>
-            const modal4 = document.getElementById('myModal4');
-            const exploreBtn4 = document.getElementById('exploreBtn4');
-            const closeBtn4 = document.querySelector('#myModal4 .close-btn');
-
-            exploreBtn4.addEventListener('click', function() {
-                modal4.style.display = 'flex';
-            });
-
-            closeBtn4.addEventListener('click', function() {
+        window.addEventListener('click', function(event) {
+            if (event.target === modal4) {
                 modal4.style.display = 'none';
-            });
+            }
+        });
 
-            window.addEventListener('click', function(event) {
-                if (event.target === modal4) {
-                    modal4.style.display = 'none';
-                }
-            });
-        </script>
-    </section>
+        // Modal 5
+        const modal5 = document.getElementById('myModal5');
+        const exploreBtn5 = document.getElementById('exploreBtn5');
+        const closeBtn5 = document.querySelector('#myModal5 .close-btn');
 
-	
-	
-	
-	
+        exploreBtn5.addEventListener('click', function() {
+            modal5.style.display = 'flex';
+        });
+
+        closeBtn5.addEventListener('click', function() {
+            modal5.style.display = 'none';
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target === modal5) {
+                modal5.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>

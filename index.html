@@ -4,43 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | unoeberhard</title>
-    <link rel="stylesheet" href="styles.css">
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Link to Google Fonts for Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <!-- Link to Font Awesome for icons -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <style>
         body {
-            margin: 0;
-            padding: 0;
             font-family: 'Poppins', sans-serif;
             background-color: #0d1117;
             color: #c9d1d9;
+            margin: 0;
+            padding: 0;
         }
 
         header {
             background-color: #161b22;
             padding: 20px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo {
-            margin-right: 500px;
-            padding-left: 20px; /* Add some padding to the left for spacing */
         }
 
         .logo img {
-            max-height: 60px; /* Adjust the height of the logo as needed */
+            max-height: 60px;
         }
 
         nav ul {
             list-style-type: none;
             display: flex;
             justify-content: center;
-            padding: 25px;
-            margin: 0;
+            padding: 10px;
         }
 
         nav ul li {
@@ -51,52 +43,36 @@
             text-decoration: none;
             color: #c9d1d9;
             font-size: 18px;
+            position: relative;
         }
 
-        nav ul li a:hover {
-            color: #58a6ff;
+        nav ul li a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #58a6ff;
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            transition: width 0.3s ease;
         }
 
-        /* Underline for the "Home" link */
-        nav ul li a.home-link {
-            border-bottom: 2px solid #58a6ff;
-        }
-
-        .eb {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 15px 100px;
-            background-color: #0d1117;
-            padding-top: 90px; /* Add padding to avoid content being hidden under the fixed header */
-        }
-
-        .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        nav ul li a:hover::after {
             width: 100%;
         }
 
-        .eb-text {
-            max-width: 50%;
-        }
-
-        .eb-text h1 {
-            font-size: 40px;
-            margin: 0;
+        .eb {
+            background-color: #0d1117;
+            padding-top: 50px;
+            padding-bottom: 50px;
         }
 
         .eb-text h2 {
             font-size: 70px;
             margin: 10px 0;
             color: #58a6ff;
-            font-weight: bold; /* Ensure font weight for Poppins Black */
-        }
-
-        .eb-text h3 {
-            font-size: 30px;
-            margin: 20px 0;
+            font-weight: bold;
         }
 
         .typing-text {
@@ -107,7 +83,6 @@
         }
 
         .eb-text p {
-            font-size: 16px;
             line-height: 1.5;
             margin: 20px 0;
         }
@@ -116,60 +91,71 @@
             color: #c9d1d9;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #58a6ff;
-            color: #0d1117;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-
-        .btn:hover {
-            background-color: #1f6feb;
-            color: #fff;
+        /* Animation for the image */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .eb-image img {
-            max-width: 400px;
+            animation: fadeInUp 3s ease forwards;
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">
-            <img src="assets/logo.png" alt="Logo">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <div class="logo text-center text-md-left">
+                        <img src="assets/logo.png" alt="Logo" style="max-height: 60px;">
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <nav class="text-center text-md-right mt-3 mt-md-0">
+                        <ul class="nav">
+                            <li class="nav-item"><a class="nav-link home-link" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="About.html">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="Skills.html">Skills</a></li>
+                            <li class="nav-item"><a class="nav-link" href="Portfolio.html">Portfolio</a></li>
+                            <li class="nav-item"><a class="nav-link" href="Contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
         </div>
-        <nav>
-            <ul>
-                <li><a href="main.html" class="home-link">Home</a></li>
-                <li><a href="About.html">About</a></li>
-                <li><a href="Skills.html">Skills</a></li>
-                <li><a href="Portfolio.html">Portfolio</a></li>
-                <li><a href="Contact.html">Contact</a></li>
-            </ul>
-        </nav>
     </header>
 
     <section id="home" class="eb">
         <div class="container">
-            <div class="eb-text">
-                <h1>Hello, I am</h1>
-                <h2>Eberhard Josh</h2>
-                <h3><span class="typing-text" id="typing-text"></span></h3>
-                <p>An incoming 4th Year Computer Engineering student at Adamson University, equipped with extensive and competitive skills in both hardware and software development.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="eb-text text-center text-lg-left">
+                        <h1>Hello, I am</h1>
+                        <h2 class="mb-4">Eberhard Josh</h2>
+                        <h3><span class="typing-text" id="typing-text"></span></h3>
+                        <p class="mt-4">An incoming 4th Year Computer Engineering student at Adamson University, equipped with extensive and competitive skills in both hardware and software development.</p>
+                        <div class="social-links mt-4">
+                            <a href="#" style="color: #c9d1d9;"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" style="color: #c9d1d9;"><i class="fab fa-twitter"></i></a>
+                            <a href="#" style="color: #c9d1d9;"><i class="fab fa-instagram"></i></a>
+                            <a href="#" style="color: #c9d1d9;"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                        <a href="CV_DeCasa.pdf" download class="btn btn-primary mt-4">Download CV</a>
+					</div>
                 </div>
-
-                <a href="CV_DeCasa.pdf" download class="btn">Download CV</a>
-            </div>
-            <div class="eb-image">
-                <img src="assets/index.png" alt="Eberhard Josh">
+                <div class="col-lg-6">
+					<br>
+                    <div class="eb-image text-center">
+                        <img src="assets/index.png" alt="Eberhard Josh" class="img-fluid" style="max-width: 80%; height: auto;">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -187,5 +173,8 @@
         }
         document.addEventListener("DOMContentLoaded", typeText);
     </script>
+
+    <!-- Optional: Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
