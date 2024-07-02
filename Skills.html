@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skills | unoeberhard</title>
-    <!-- External Stylesheets -->
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <style>
        body {
@@ -66,7 +64,6 @@
             width: 100%;
         }
 
-        /* Banner (Skills Section) Styling */
         #skills {
             background-color: #0d1117;
             padding-top: 50px;
@@ -88,17 +85,16 @@
         }
 
         .logo-container img {
-            max-width: 60px; /* Adjust as needed */
+            max-width: 60px;
             margin: 10px;
-            opacity: 0; /* Initially hide the logos */
-            animation: fadeInLogo 1s ease-in-out forwards; /* Animation to fade in */
+            opacity: 0;
+            animation: fadeInLogo 1s ease-in-out forwards;
         }
 
-        /* Keyframes for logo animation */
         @keyframes fadeInLogo {
             from {
                 opacity: 0;
-                transform: translateY(-20px); /* Optional: Slide in from top */
+                transform: translateY(-20px);
             }
             to {
                 opacity: 1;
@@ -106,12 +102,10 @@
             }
         }
 
-        /* Override animation for specific logo */
         .logo img.no-animation {
             animation: none;
         }
 
-        /* Skill Bar Styling */
         .skills-container {
             max-width: 800px;
             margin: 0 auto;
@@ -132,14 +126,14 @@
             border: 1px solid #c9d1d9;
             border-radius: 5px;
             overflow: hidden;
-            width: 100%; /* Ensure full width for progress bar */
+            width: 100%;
         }
 
         .skill-level {
             background-color: #58a6ff;
             height: 20px;
-            width: 0; /* Start with 0% width */
-            transition: width 1s ease-in-out; /* Smooth transition for width change */
+            width: 0;
+            transition: width 1s ease-in-out;
         }
 
         .skill-percent {
@@ -151,7 +145,6 @@
             font-size: 14px;
         }
 
-        /* Explore Button Styling */
         .explore-container {
             text-align: center;
             margin: 20px 0;
@@ -175,7 +168,6 @@
     </style>
 </head>
 <body>
-    <!-- Header Section -->
     <header>
         <div class="container">
             <div class="row align-items-center">
@@ -199,7 +191,6 @@
         </div>
     </header>
 
-    <!-- Skills Section (Banner) -->
     <section id="skills" class="eb">
         <div class="container">
             <div class="row justify-content-center">
@@ -273,7 +264,6 @@
         </div>
     </section>
 
-    <!-- JavaScript for Skill Bars and Logo Animation -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const skillLevels = document.querySelectorAll('.skill-level');
@@ -300,7 +290,6 @@
         });
     </script>
 
-    <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

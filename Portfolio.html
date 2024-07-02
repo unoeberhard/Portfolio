@@ -5,11 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | unoeberhard</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Link to Google Fonts for Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Link to Font Awesome for icons -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
          body {
@@ -189,7 +186,7 @@
             text-align: center;
         }
 		.skill-description h2 {
-		font-size: 24px; /* Adjust the font size as needed */
+		font-size: 24px;
 		}
 
         .explore-btn {
@@ -233,6 +230,13 @@
 
         .close-btn:hover {
             color: #c9d1d9;
+        }
+
+        .modal img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -290,6 +294,7 @@
             <div id="myModal1" class="modal">
                 <div class="modal-content">
                     <span class="close-btn">&times;</span>
+                    <img src="assets/a.png" alt="Portfolio 1">
                     <p>Dadi's Store is an efficient inventory management system developed using HTML in Visual Studio, integrated with PHP, MySQL, and WampServer. It features a user-friendly interface that simplifies inventory operations, offering real-time updates and notifications on low stock levels directly on the dashboard. The system enables comprehensive monitoring of inventory products and maintains a detailed transaction history. With distinct user profiles for both cashiers and administrators, It ensures secure and role-based access to manage inventory and streamline operations effectively.</p>
                 </div>
             </div>
@@ -313,6 +318,7 @@
             <div id="myModal2" class="modal">
                 <div class="modal-content">
                     <span class="close-btn">&times;</span>
+                    <img src="assets/b.jpg" alt="Portfolio 2">
                     <p>This project focuses on creating an Arduino-based Line Follower Robot using the LAFVIN robot kit. The robot is designed to autonomously navigate predefined paths by following black lines on a contrasting surface. Equipped with infrared sensors, the robot detects the path and adjusts its movement accordingly, demonstrating principles of robotics and automation. The project integrates Arduino programming and sensor interfacing to achieve precise control and navigation, making it an ideal platform for learning basic robotics concepts and sensor-based control systems.</p>
                 </div>
             </div>
@@ -336,6 +342,7 @@
             <div id="myModal3" class="modal">
                 <div class="modal-content">
                     <span class="close-btn">&times;</span>
+                    <img src="assets/c.jpg" alt="Portfolio 3">
                     <p>This project aims to optimize elevator efficiency and safety using YOLOv5-based camera systems for real-time head counting. By accurately monitoring passenger traffic and occupancy levels, the system minimizes wait times and congestion, ensuring a safer environment through continuous surveillance. Implemented with Arduino microcontrollers and AI algorithms, this initiative showcases improved elevator management, contributing to enhanced operational efficiency and safety protocols within educational settings.</p>
                 </div>
             </div>
@@ -359,6 +366,7 @@
             <div id="myModal5" class="modal">
                 <div class="modal-content">
                     <span class="close-btn">&times;</span>
+                    <img src="assets/e.jpg" alt="Portfolio 4">
                     <p>TransitSense is an innovative software solution that optimizes public transportation by enhancing passenger flow through intelligent queue management. Using object detection technology, it identifies and analyzes real-time footage of commuters in crowded areas. This system improves resource allocation, streamlines boarding processes, reduces traffic congestion, and lowers carbon emissions, promoting efficient and sustainable urban transit.</p>
                 </div>
             </div>
@@ -382,111 +390,107 @@
             <div id="myModal4" class="modal">
                 <div class="modal-content">
                     <span class="close-btn">&times;</span>
+                    <img src="assets/d.jpg" alt="Portfolio 5">
                     <p>The event, organized by the ICPEP.SE NCR, included representatives from various participating CPE institutions and universities in NCR. I was chosen as one of the representatives from Adamson University to compete in a pitching competition focusing on IoT solutions aimed at preventing traffic congestion, reducing carbon emissions, and enhancing commuter experience.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Bootstrap JS, Font Awesome -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <!-- Script for Modal Windows -->
     <script>
-        // Modal 1
-        const modal1 = document.getElementById('myModal1');
-        const exploreBtn1 = document.getElementById('exploreBtn1');
-        const closeBtn1 = document.querySelector('#myModal1 .close-btn');
+        document.addEventListener('DOMContentLoaded', function () {
+            var modal1 = document.getElementById("myModal1");
+            var btn1 = document.getElementById("exploreBtn1");
+            var span1 = modal1.getElementsByClassName("close-btn")[0];
 
-        exploreBtn1.addEventListener('click', function() {
-            modal1.style.display = 'flex';
-        });
-
-        closeBtn1.addEventListener('click', function() {
-            modal1.style.display = 'none';
-        });
-
-        window.addEventListener('click', function(event) {
-            if (event.target === modal1) {
-                modal1.style.display = 'none';
+            btn1.onclick = function () {
+                modal1.style.display = "flex";
             }
-        });
 
-        // Modal 2
-        const modal2 = document.getElementById('myModal2');
-        const exploreBtn2 = document.getElementById('exploreBtn2');
-        const closeBtn2 = document.querySelector('#myModal2 .close-btn');
-
-        exploreBtn2.addEventListener('click', function() {
-            modal2.style.display = 'flex';
-        });
-
-        closeBtn2.addEventListener('click', function() {
-            modal2.style.display = 'none';
-        });
-
-        window.addEventListener('click', function(event) {
-            if (event.target === modal2) {
-                modal2.style.display = 'none';
+            span1.onclick = function () {
+                modal1.style.display = "none";
             }
-        });
 
-        // Modal 3
-        const modal3 = document.getElementById('myModal3');
-        const exploreBtn3 = document.getElementById('exploreBtn3');
-        const closeBtn3 = document.querySelector('#myModal3 .close-btn');
-
-        exploreBtn3.addEventListener('click', function() {
-            modal3.style.display = 'flex';
-        });
-
-        closeBtn3.addEventListener('click', function() {
-            modal3.style.display = 'none';
-        });
-
-        window.addEventListener('click', function(event) {
-            if (event.target === modal3) {
-                modal3.style.display = 'none';
+            window.onclick = function (event) {
+                if (event.target == modal1) {
+                    modal1.style.display = "none";
+                }
             }
-        });
 
-        // Modal 4
-        const modal4 = document.getElementById('myModal4');
-        const exploreBtn4 = document.getElementById('exploreBtn4');
-        const closeBtn4 = document.querySelector('#myModal4 .close-btn');
+            var modal2 = document.getElementById("myModal2");
+            var btn2 = document.getElementById("exploreBtn2");
+            var span2 = modal2.getElementsByClassName("close-btn")[0];
 
-        exploreBtn4.addEventListener('click', function() {
-            modal4.style.display = 'flex';
-        });
-
-        closeBtn4.addEventListener('click', function() {
-            modal4.style.display = 'none';
-        });
-
-        window.addEventListener('click', function(event) {
-            if (event.target === modal4) {
-                modal4.style.display = 'none';
+            btn2.onclick = function () {
+                modal2.style.display = "flex";
             }
-        });
 
-        // Modal 5
-        const modal5 = document.getElementById('myModal5');
-        const exploreBtn5 = document.getElementById('exploreBtn5');
-        const closeBtn5 = document.querySelector('#myModal5 .close-btn');
+            span2.onclick = function () {
+                modal2.style.display = "none";
+            }
 
-        exploreBtn5.addEventListener('click', function() {
-            modal5.style.display = 'flex';
-        });
+            window.onclick = function (event) {
+                if (event.target == modal2) {
+                    modal2.style.display = "none";
+                }
+            }
 
-        closeBtn5.addEventListener('click', function() {
-            modal5.style.display = 'none';
-        });
+            var modal3 = document.getElementById("myModal3");
+            var btn3 = document.getElementById("exploreBtn3");
+            var span3 = modal3.getElementsByClassName("close-btn")[0];
 
-        window.addEventListener('click', function(event) {
-            if (event.target === modal5) {
-                modal5.style.display = 'none';
+            btn3.onclick = function () {
+                modal3.style.display = "flex";
+            }
+
+            span3.onclick = function () {
+                modal3.style.display = "none";
+            }
+
+            window.onclick = function (event) {
+                if (event.target == modal3) {
+                    modal3.style.display = "none";
+                }
+            }
+
+            var modal4 = document.getElementById("myModal4");
+            var btn4 = document.getElementById("exploreBtn4");
+            var span4 = modal4.getElementsByClassName("close-btn")[0];
+
+            btn4.onclick = function () {
+                modal4.style.display = "flex";
+            }
+
+            span4.onclick = function () {
+                modal4.style.display = "none";
+            }
+
+            window.onclick = function (event) {
+                if (event.target == modal4) {
+                    modal4.style.display = "none";
+                }
+            }
+
+            var modal5 = document.getElementById("myModal5");
+            var btn5 = document.getElementById("exploreBtn5");
+            var span5 = modal5.getElementsByClassName("close-btn")[0];
+
+            btn5.onclick = function () {
+                modal5.style.display = "flex";
+            }
+
+            span5.onclick = function () {
+                modal5.style.display = "none";
+            }
+
+            window.onclick = function (event) {
+                if (event.target == modal5) {
+                    modal5.style.display = "none";
+                }
             }
         });
     </script>
