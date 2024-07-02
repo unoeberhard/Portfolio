@@ -196,48 +196,56 @@
 
         /* Modal Styling */
         .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-        }
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+        overflow-y: auto; /* Enable vertical scrolling */
+    }
 
-        .modal-content {
-            background-color: #161b22;
-            color: #c9d1d9;
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 50%;
-            text-align: center;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            position: relative;
-        }
+    .modal-content {
+        background-color: #161b22;
+        color: #c9d1d9;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 90%; /* Adjust width as necessary */
+        max-height: 90%; /* Adjust height as necessary */
+        overflow: auto; /* Enable content scrolling */
+        text-align: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        position: relative;
+    }
 
-        .close-btn {
-            color: #58a6ff;
-            font-size: 24px;
-            cursor: pointer;
-            position: absolute;
-            top: 10px;
-            right: 20px;
-        }
+    .close-btn {
+        color: #58a6ff;
+        font-size: 24px;
+        cursor: pointer;
+        position: absolute;
+        top: 10px;
+        right: 20px;
+    }
 
-        .close-btn:hover {
-            color: #c9d1d9;
-        }
+    .close-btn:hover {
+        color: #c9d1d9;
+    }
 
-        .modal img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 20px;
-            border-radius: 10px;
-        }
+    .modal img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+        border-radius: 10px;
+    }
+
+    /* Hide scrollbar */
+    .modal-content::-webkit-scrollbar {
+        width: 0; /* Set width to 0 */
+    }
     </style>
 </head>
 <body>
@@ -358,7 +366,7 @@
                     <h2>TransitSense</h2>
                     <p>Adamson University - May 18, 2024</p>
                     <div class="explore-btn">
-                        <button id="exploreBtn5" class="explore">Explore</button>
+                        <button id="exploreBtn4" class="explore">Explore</button>
                     </div>
                 </div>
             </div>
@@ -382,7 +390,7 @@
                     <h2>CPE Challenge - Robothon Competition</h2>
                     <p>ICPEP.SE NCR (Asia Pacific College)</p>
                     <div class="explore-btn">
-                        <button id="exploreBtn4" class="explore">Explore</button>
+                        <button id="exploreBtn5" class="explore">Explore</button>
                     </div>
                 </div>
             </div>
@@ -397,102 +405,61 @@
         </div>
     </section>
 
+
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            var modal1 = document.getElementById("myModal1");
-            var btn1 = document.getElementById("exploreBtn1");
-            var span1 = modal1.getElementsByClassName("close-btn")[0];
-
-            btn1.onclick = function () {
-                modal1.style.display = "flex";
+            // Get all modals and close buttons
+            var modals = document.querySelectorAll('.modal');
+            var closeBtns = document.querySelectorAll('.close-btn');
+    
+            // Function to open a modal
+            function openModal(modal) {
+                modal.style.display = "flex";
             }
-
-            span1.onclick = function () {
-                modal1.style.display = "none";
+    
+            // Function to close a modal
+            function closeModal(modal) {
+                modal.style.display = "none";
             }
-
+    
+            // Event listeners for each modal
+            modals.forEach(function (modal, index) {
+                var btn = document.getElementById("exploreBtn" + (index + 1));
+                var span = closeBtns[index];
+    
+                btn.onclick = function () {
+                    openModal(modal);
+                };
+    
+                span.onclick = function () {
+                    closeModal(modal);
+                };
+    
+                // Add event listener for Escape key press
+                document.addEventListener('keydown', function (event) {
+                    if (event.key === 'Escape') {
+                        closeModal(modal);
+                    }
+                });
+            });
+    
+            // Event listener for clicking outside any open modal
             window.onclick = function (event) {
-                if (event.target == modal1) {
-                    modal1.style.display = "none";
-                }
-            }
-
-            var modal2 = document.getElementById("myModal2");
-            var btn2 = document.getElementById("exploreBtn2");
-            var span2 = modal2.getElementsByClassName("close-btn")[0];
-
-            btn2.onclick = function () {
-                modal2.style.display = "flex";
-            }
-
-            span2.onclick = function () {
-                modal2.style.display = "none";
-            }
-
-            window.onclick = function (event) {
-                if (event.target == modal2) {
-                    modal2.style.display = "none";
-                }
-            }
-
-            var modal3 = document.getElementById("myModal3");
-            var btn3 = document.getElementById("exploreBtn3");
-            var span3 = modal3.getElementsByClassName("close-btn")[0];
-
-            btn3.onclick = function () {
-                modal3.style.display = "flex";
-            }
-
-            span3.onclick = function () {
-                modal3.style.display = "none";
-            }
-
-            window.onclick = function (event) {
-                if (event.target == modal3) {
-                    modal3.style.display = "none";
-                }
-            }
-
-            var modal4 = document.getElementById("myModal4");
-            var btn4 = document.getElementById("exploreBtn4");
-            var span4 = modal4.getElementsByClassName("close-btn")[0];
-
-            btn4.onclick = function () {
-                modal4.style.display = "flex";
-            }
-
-            span4.onclick = function () {
-                modal4.style.display = "none";
-            }
-
-            window.onclick = function (event) {
-                if (event.target == modal4) {
-                    modal4.style.display = "none";
-                }
-            }
-
-            var modal5 = document.getElementById("myModal5");
-            var btn5 = document.getElementById("exploreBtn5");
-            var span5 = modal5.getElementsByClassName("close-btn")[0];
-
-            btn5.onclick = function () {
-                modal5.style.display = "flex";
-            }
-
-            span5.onclick = function () {
-                modal5.style.display = "none";
-            }
-
-            window.onclick = function (event) {
-                if (event.target == modal5) {
-                    modal5.style.display = "none";
-                }
-            }
+                modals.forEach(function (modal) {
+                    if (event.target == modal) {
+                        closeModal(modal);
+                    }
+                });
+            };
         });
     </script>
+    
+    
+    
 </body>
 </html>
