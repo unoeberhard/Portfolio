@@ -1,203 +1,132 @@
-<!DOCTYPE html>
+`<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | unoeberhard</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <title>ThesisHub</title>
     <style>
+        body
+        
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #000000;
-            color: #c9d1d9;
-            margin: 0;
-            padding: 0;
-            /* Background Image */
-            background-image: url('assets/3.jpg');
-            background-size: cover; /* Cover the entire background */
-            background-position: center; /* Center the background image */
-            background-repeat: no-repeat; /* No repeat */
+            overflow-x: hidden; /* To hide the horizontal scrollbar */
         }
 
-        header {
-            background-color: #000000e8;
-            padding: 20px 0;
+        /* Navigation menu styles */
+        .menu-toggle {
+            font-size: 30px;
+            cursor: pointer;
+            position: fixed;
+            top: 30px;
+            right: 20px;
+            color: #fff;
+            z-index: 1000; /* Bring to front */
         }
 
-        .logo img {
-            max-height: 60px;
+        nav {
+            position: fixed;
+            top: 0;
+            right: -250px; /* Initially hidden on the left */
+            width: 250px;
+            height: 100%;
+            background-color: rgba(17, 17, 17, 0.7); /* 70% transparency */
+            overflow-x: hidden;
+            padding-top: 20px;
+            transition: 0.5s;
+            z-index: 999; /* Bring to front */
         }
 
         nav ul {
-            list-style-type: none;
-            display: flex;
-            justify-content: center;
-            padding: 10px;
+            list-style: none;
         }
 
         nav ul li {
-            margin: 0 20px;
+            padding: 15px;
+            text-align: center;
         }
 
         nav ul li a {
             text-decoration: none;
-            color: #c9d1d9;
+            color: #818181;
             font-size: 18px;
-            position: relative;
-        }
-
-        nav ul li a::after {
-            content: '';
             display: block;
-            width: 0;
-            height: 2px;
-            background: #58a6ff;
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            transition: width 0.3s ease;
+            transition: 0.3s;
         }
 
-        nav ul li a:hover::after {
-            width: 100%;
+        nav ul li a:hover {
+            color: #f1f1f1;
         }
 
-        .eb {
-            background-color: rgba(0, 0, 0, 0.5);
-            padding-top: 50px;
-            padding-bottom: 50px;
-            color: #c9d1d9; /* Adjust text color for better visibility */
+        nav img {
+            width: 150; /* Adjust the width of the logo */
+            margin-bottom: 10px;
+            margin-left: 10 px;
+            margin-right: 10 px;
         }
 
-        .eb-text h2 {
-            font-size: 70px;
-            margin: 10px 0;
-            color: #58a6ff;
-            font-weight: bold;
+        .explore {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 13px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
         }
 
-        .typing-text {
-            border-right: 3px solid #58a6ff;
-            white-space: nowrap;
-            overflow: hidden;
-            display: inline-block;
+        .explore:hover {
+            background-color: #fff;
+            color: #000;
+            transform: scale(1.05);
         }
 
-        .eb-text p {
-            line-height: 1.5;
-            margin: 20px 0;
-        }
-
-        .social-links a:hover {
-            color: #c9d1d9;
-        }
-
-        @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
+        @media screen and (max-width: 768px) {
+            .menu-toggle {
+                display: block;
             }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
+
+            nav {
+                width: 100%;
+                height: 100vh;
             }
-        }
-
-        .eb-image img {
-            animation: fadeInUp 3s ease forwards;
-            max-width: 80%;
-            height: auto;
-            display: block;
-            margin: 0 auto; /* Center the image */
-        }
-
-        .social-links a {
-            color: #c9d1d9;
-            margin: 0 10px;
-            font-size: 20px;
-        }
-
-        .social-links a:hover {
-            color: #58a6ff;
-        }
-
-        .btn-primary {
-            background-color: #58a6ff;
-            border-color: #58a6ff;
-        }
-
-        .btn-primary:hover {
-            background-color: #0d6efd;
-            border-color: #0d6efd;
         }
     </style>
 </head>
+
 <body>
+    <!-- Side Navigation -->
+    <nav>
+        <ul>
+            <li>
+                <img src="assets/logo.png" alt="Logo">
+                <br><br>
+                <a href="index.html" onclick="toggleMenu()">Home</a>
+            </li>
+            <li><a href="About.html" onclick="toggleMenu()">About</a></li>
+            <li><a href="Skills.html" onclick="toggleMenu()">Skills</a></li>
+            <li><a href="Portfolio.html" onclick="toggleMenu()">Portfolio</a></li>
+            <li><a href="Contact.html" onclick="toggleMenu()">Contact</a></li>
+        </ul>
+    </nav>
     <header>
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-4">
-                    <div class="logo text-center text-md-left">
-                        <img src="assets/logo.png" alt="Logo" style="max-height: 60px;">
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <nav class="text-center text-md-right mt-3 mt-md-0">
-                        <ul class="nav">
-                            <li class="nav-item"><a class="nav-link home-link" href="index.html">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="About.html">About</a></li>
-                            <li class="nav-item"><a class="nav-link" href="Skills.html">Skills</a></li>
-                            <li class="nav-item"><a class="nav-link" href="Portfolio.html">Portfolio</a></li>
-                            <li class="nav-item"><a class="nav-link" href="Contact.html">Contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
+        <!-- Hamburger Icon -->
+        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
     </header>
 
-    <section id="home" class="eb">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="eb-text text-center text-lg-left">
-                        <h1>Hello, I am</h1>
-                        <h2 class="mb-4">Eberhard Josh</h2>
-                        <h3><span class="typing-text" id="typing-text"></span></h3>
-                        <p class="mt-4">An incoming 4th Year Computer Engineering student at Adamson University, equipped with extensive and competitive skills in both hardware and software development.</p>
-                        <div class="social-links mt-4">
-                            <a href="#" style="color: #c9d1d9;"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" style="color: #c9d1d9;"><i class="fab fa-twitter"></i></a>
-                            <a href="#" style="color: #c9d1d9;"><i class="fab fa-instagram"></i></a>
-                            <a href="#" style="color: #c9d1d9;"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                        <a href="CV_DeCasa.pdf" download class="btn btn-primary mt-4">Download CV</a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="eb-image text-center">
-                        <img src="assets/index.png" alt="Eberhard Josh" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+  
     <script>
-        const text = "A Frontend Developer";
-        let index = 0;
-        function typeText() {
-            if (index < text.length) {
-                document.getElementById("typing-text").innerHTML += text.charAt(index);
-                index++;
-                setTimeout(typeText, 100);
-            }
+        function toggleMenu() {
+            var nav = document.querySelector('nav');
+            nav.style.right = (nav.style.right === '0px' || nav.style.right === '') ? '-250px' : '0px';
         }
-        document.addEventListener("DOMContentLoaded", typeText);
     </script>
-
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>

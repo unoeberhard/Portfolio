@@ -19,6 +19,10 @@
         header {
             background-color: #161b22;
             padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            margin-bottom: 100px !important;
+            z-index: 999 !important;
         }
 
         .logo img {
@@ -29,7 +33,7 @@
             list-style-type: none;
             display: flex;
             justify-content: center;
-            padding: 10px;
+            padding: 0px;
         }
 
         nav ul li {
@@ -82,16 +86,6 @@
             text-align: justify;
         }
 
-        .social-links a {
-            color: #58a6ff;
-            margin: 0 10px;
-            font-size: 20px;
-        }
-
-        .social-links a:hover {
-            color: #c9d1d9;
-        }
-
         .image-container {
             display: flex;
             justify-content: center;
@@ -126,6 +120,80 @@
         .eb-text {
             margin: 0 30px;
         }
+
+                /* Media Query for Responsiveness */
+                @media (max-width: 1000px) {
+            .menu-toggle {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 24px;
+                cursor: pointer;
+                color: #fff;
+                z-index: 1001; /* Ensures burger icon is above other content */
+            }
+
+            nav {
+                right: -100%;
+                width: 100%;
+                height: 100%;
+                transition: right 0.5s;
+                background-color: rgba(17, 17, 17, 0.99);
+                overflow-x: hidden;
+                position: fixed;
+                z-index: 1000;
+            }
+
+            nav.active {
+                right: 0;
+            }
+
+            header {
+                padding-top: 15px; /* Adjusted padding for smaller screens */
+                padding-bottom: 15px; /* Adjusted padding for smaller screens */
+            }
+
+            .logo {
+                text-align: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+
+        @media (min-width: 999px) {
+            .menu-toggle {
+                display: none; /* Hide burger icon on larger screens */
+            }
+
+            nav {
+                position: static; /* Ensure full nav bar is visible on large screens */
+                width: auto;
+                background-color: #161b22;
+                height: auto;
+                overflow: visible;
+            }
+
+            nav ul {
+                justify-content: flex-end; /* Align items to the right on large screens */
+            }
+
+            nav ul li {
+                margin: 0;
+            }
+
+            .logo {
+                text-align: left;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -140,8 +208,9 @@
                 <div class="col-md-8">
                     <nav class="text-center text-md-right mt-3 mt-md-0">
                         <ul class="nav">
-                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                            <li class="nav-item"><a class="nav-link about-link" href="About.html">About</a></li>
+                            <br><br>
+                            <li class="nav-item"><a class="nav-link index-link" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="About.html">About</a></li>
                             <li class="nav-item"><a class="nav-link" href="Skills.html">Skills</a></li>
                             <li class="nav-item"><a class="nav-link" href="Portfolio.html">Portfolio</a></li>
                             <li class="nav-item"><a class="nav-link" href="Contact.html">Contact</a></li>
@@ -150,7 +219,10 @@
                 </div>
             </div>
         </div>
+            <!-- Burger Icon -->
+            <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
     </header>
+    <br><br><br><br>
 
     <section class="eb">
         <div class="container">
@@ -196,6 +268,35 @@
             }
         }
         document.addEventListener("DOMContentLoaded", typeText);
+    
+        var autoHideTimeout;
+
+        function toggleMenu() {
+        var nav = document.querySelector('nav');
+        nav.classList.toggle('active');
+        resetAutoHideTimer();
+        }
+
+        function resetAutoHideTimer() {
+        clearTimeout(autoHideTimeout);
+        autoHideTimeout = setTimeout(function () {
+        var nav = document.querySelector('nav');
+        nav.classList.remove('active');
+        }, 3000);
+        }
+
+        document.addEventListener('click', function (event) {
+        var nav = document.querySelector('nav');
+        var menuToggle = document.querySelector('.menu-toggle');
+        var isClickInsideNav = nav.contains(event.target);
+        var isClickInsideToggle = menuToggle.contains(event.target);
+
+        if (!isClickInsideNav && !isClickInsideToggle) {
+        nav.classList.remove('active');
+        } else {
+        resetAutoHideTimer();
+        }
+        });
     </script>
 </body>
 </html>
